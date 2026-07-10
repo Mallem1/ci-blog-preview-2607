@@ -105,39 +105,6 @@
 
 	/* ---------- inject "add to cart" on shoppable blocks ---------- */
 	function injectButtons() {
-		// vertical rail cards
-		document.querySelectorAll('.jb-rail-card').forEach(function (card) {
-			if (card.querySelector('.jbc-add')) { return; }
-			var link = card.querySelector('a.rail-btn');
-			var item = {
-				name: (card.querySelector('.rail-name') || {}).textContent || 'Produit',
-				price: parsePrice((card.querySelector('.rail-price') || {}).textContent),
-				url: link ? link.href : '#',
-				img: (card.querySelector('img.rail-img') || {}).src || ''
-			};
-			var b = document.createElement('button');
-			b.className = 'jbc-add';
-			b.textContent = '+ Panier';
-			b.addEventListener('click', function () { add(item); });
-			link.parentNode.insertBefore(b, link);
-		});
-		// horizontal product cards
-		document.querySelectorAll('.jb-product-card').forEach(function (card) {
-			if (card.querySelector('.jbc-add')) { return; }
-			var link = card.querySelector('a.rail-btn, .wp-block-button__link');
-			if (!link) { return; }
-			var item = {
-				name: (card.querySelector('p') || {}).textContent || 'Produit',
-				price: parsePrice((card.querySelector('.jb-price') || {}).textContent),
-				url: link.href,
-				img: (card.querySelector('img') || {}).src || ''
-			};
-			var b = document.createElement('button');
-			b.className = 'jbc-add jbc-add-inline';
-			b.textContent = '+ Panier';
-			b.addEventListener('click', function () { add(item); });
-			link.parentNode.insertBefore(b, link);
-		});
 		// story product bars
 		document.querySelectorAll('.jb-story-card .story-product').forEach(function (bar) {
 			if (bar.parentNode.querySelector('.jbc-add-story')) { return; }
