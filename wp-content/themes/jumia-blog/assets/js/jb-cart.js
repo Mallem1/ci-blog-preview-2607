@@ -119,7 +119,8 @@
 			b.setAttribute('aria-label', 'Ajouter au panier');
 			b.textContent = '+';
 			b.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); add(item); });
-			bar.appendChild(b);
+			var cta = bar.querySelector('.sp-cta');
+			bar.insertBefore(b, cta);
 		});
 	}
 
