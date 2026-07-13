@@ -3,7 +3,7 @@ Theme Name: Jumia Blog
 Theme URI: https://www.jumia.com
 Author: Jumia Design Studio
 Description: Custom block theme for Jumia country blogs, aligned with the Mall UX Revamp v1 2026 design system. Editorial magazine layout with commerce built in: Jumia-site-style header with prominent search, shoppable product rails, category tiles bridging to the catalogue.
-Version: 0.12.1
+Version: 0.13.0
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -903,6 +903,66 @@ img,
 }
 .jb-share-btn:hover { border-color: var(--jb-brand); color: var(--jb-brand-700); background: var(--jb-brand-50); }
 .jb-share-copy.is-copied { background: var(--jb-brand); border-color: var(--jb-brand); color: #fff; }
+
+
+/* ================= Structural (country-aware header/footer/bands) ================= */
+.jb-topbar-in, .jb-header-main, .jb-catnav-row,
+.jb-footer-cols, .jbf-bottom, .jbf-sep {
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.jb-topbar-in { display: flex; justify-content: space-between; align-items: center; }
+.jb-topbar-in p { margin: 0; }
+.jb-header-main { display: flex; align-items: center; gap: 28px; }
+.jb-catnav-row { display: flex; gap: 4px; }
+.jb-search form { margin: 0; }
+.jb-search .wp-block-search__inside-wrapper { display: flex; align-items: center; }
+.jb-search .wp-block-search__input { flex: 1; }
+
+.jb-footer { background: var(--jb-dark); color: #fff; padding: 56px 24px 32px; }
+.jb-footer-cols { display: grid; grid-template-columns: 34% 22% 22% 22%; gap: 24px; }
+.jbf-tagline { color: #C9C9CB; font-size: 13px; }
+.jbf-cta { background: var(--jb-brand) !important; color: #fff !important; border-radius: 999px; padding: 10px 22px; font-size: 14px; text-decoration: none; display: inline-block; }
+.jbf-cta:hover { background: var(--jb-brand-700) !important; }
+.jbf-h { color: #fff; font-size: 11px !important; letter-spacing: 2.2px; font-weight: 500; }
+.jbf-links a, .jbf-social a { color: #C9C9CB; font-size: 13px; text-decoration: none; line-height: 1.9; }
+.jbf-links a:hover, .jbf-social a:hover { color: var(--jb-brand-300); }
+.jbf-sep { border: none; border-top: 1px solid #4A4A4C; margin-top: 32px; margin-bottom: 18px; }
+.jbf-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.jbf-bottom p { margin: 0; color: #9B9B9D; font-size: 13px; }
+.jbf-bottom a { color: #9B9B9D; text-decoration: none; }
+.jbf-bottom a:hover { color: var(--jb-brand-300); }
+
+.jb-band { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; padding: 44px; }
+.jb-band-title { color: #fff; font-size: clamp(1.75rem, 3vw, 2.375rem); margin: 0 0 6px; letter-spacing: -0.02em; }
+.jb-band-sub { color: #FFF3E9; font-size: 13px; margin: 0; max-width: 34rem; }
+.jb-band-btn {
+	background: #fff;
+	color: var(--jb-brand-700);
+	border-radius: 999px;
+	padding: 11px 24px;
+	font-size: 14px;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background .12s ease;
+}
+.jb-band-btn:hover { background: var(--jb-brand-50); }
+
+.jb-404 { text-align: center; }
+.jb-404 h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+.jb-404 p { color: var(--jb-muted); }
+.jb-404-btn { background: var(--jb-brand); color: #fff; display: inline-block; margin-top: 10px; }
+.jb-404-btn:hover { background: var(--jb-brand-700); color: #fff; }
+
+@media (max-width: 900px) {
+	.jb-footer-cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 782px) {
+	.jb-footer-cols { grid-template-columns: 1fr; gap: 20px; }
+	.jb-band { padding: 28px 22px; }
+}
 
 /* ================= Fine print ================= */
 .jb-fineprint { font-size: 13px; color: var(--jb-muted); }
