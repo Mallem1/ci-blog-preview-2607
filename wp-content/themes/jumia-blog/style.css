@@ -3,7 +3,7 @@ Theme Name: Jumia Blog
 Theme URI: https://www.jumia.com
 Author: Jumia Design Studio
 Description: Custom block theme for Jumia country blogs, aligned with the Mall UX Revamp v1 2026 design system. Editorial magazine layout with commerce built in: Jumia-site-style header with prominent search, shoppable product rails, category tiles bridging to the catalogue.
-Version: 0.13.0
+Version: 0.13.1
 Requires at least: 6.5
 Tested up to: 6.8
 Requires PHP: 7.4
@@ -24,6 +24,14 @@ Text Domain: jumia-blog
 	--jb-brand-700: #AF6315;
 	--jb-brand-300: #F9B168;
 	--jb-brand-50: #FEF3E9;
+}
+
+/* Headline scale — dialled down ~20% (defined on body to override the
+   theme.json preset vars regardless of WordPress global-styles caching). */
+body {
+	--wp--preset--font-size--large: 1.1875rem;
+	--wp--preset--font-size--x-large: clamp(1.5rem, 2.2vw, 1.875rem);
+	--wp--preset--font-size--xx-large: clamp(1.875rem, 3.2vw, 2.75rem);
 }
 
 img,
@@ -100,7 +108,8 @@ img,
 	transition: background .12s ease;
 }
 .jb-search .wp-block-search__button:hover { background: var(--jb-brand-700); }
-.jb-header-cta { white-space: nowrap; }
+.jb-header-cta { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.jb-header-cta .wp-block-button { margin: 0; }
 .jb-header-cta .wp-block-button__link { font-size: 14px; padding: 10px 22px; }
 
 /* ================= Header · mobile compact ================= */
@@ -191,7 +200,7 @@ img,
 }
 .hs-body { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .hs-title {
-	font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
 	line-height: 1.12;
 	letter-spacing: -0.02em;
 	margin: 0;
@@ -274,7 +283,7 @@ img,
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	margin-right: 10px;
+	margin-right: 0;
 	transition: all .12s ease;
 }
 .jb-cart-btn:hover { border-color: var(--jb-brand); color: var(--jb-brand-700); }
@@ -509,7 +518,7 @@ img,
 	margin-bottom: 14px;
 }
 .jb-stories-head .stories-title {
-	font-size: clamp(1.75rem, 3vw, 2.375rem);
+	font-size: clamp(1.5rem, 2.2vw, 1.875rem);
 	font-weight: 700;
 	letter-spacing: -0.02em;
 }
@@ -935,7 +944,7 @@ img,
 .jbf-bottom a:hover { color: var(--jb-brand-300); }
 
 .jb-band { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; padding: 44px; }
-.jb-band-title { color: #fff; font-size: clamp(1.75rem, 3vw, 2.375rem); margin: 0 0 6px; letter-spacing: -0.02em; }
+.jb-band-title { color: #fff; font-size: clamp(1.5rem, 2.2vw, 1.875rem); margin: 0 0 6px; letter-spacing: -0.02em; }
 .jb-band-sub { color: #FFF3E9; font-size: 13px; margin: 0; max-width: 34rem; }
 .jb-band-btn {
 	background: #fff;
